@@ -1,0 +1,18 @@
+# Ignore cache
+__pycache__/
+schema/__pycache__/
+models/__pycache__/
+controllers/__pycache__/
+
+# Ignore IDE config
+.idea/
+.vscode/
+
+# Ignore driver directory
+driver/
+
+# Ignore environment variable file
+.env
+
+# Ignore package-lock file
+package-lock.json
