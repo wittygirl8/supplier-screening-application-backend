@@ -9,7 +9,7 @@ from app.schemas.logger import logger
 from app.task import process_session, validate_name
 
 #  Redis config
-REDIS_URL = "rediss://default:AU8mAAIjcDFlYmExMjZjYjUyZmU0MzUwYWU4ZmY3Y2NjNzAzMDZjNnAxMA@epic-egret-20262.upstash.io:6379"
+REDIS_URL = "redis://redis:6379/0"
 rdb = redis.Redis.from_url(REDIS_URL, decode_responses=True)
 
 SESSION_SET_KEY = "queued_session_ids"

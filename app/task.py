@@ -3,11 +3,11 @@ import redis
 import os
 
 # === Redis setup ===
-REDIS_URL = os.environ.get("REDIS_URL", "redis://localhost:6379/0")
+REDIS_URL = os.environ.get("REDIS_URL", "redis://redis:6379/0")
 rdb = redis.Redis.from_url(REDIS_URL)
 
 # === Celery setup ===
-BROKER_URL = "amqp://cyvhztoo:BzEGwP10ORBC-w-uTLeyDzN74eohgd58@ostrich.lmq.cloudamqp.com/cyvhztoo"
+BROKER_URL = "amqp://guest:guest@rabbitmq:5672//"
 celery_app = Celery("ens_tasks", broker=BROKER_URL, backend="rpc://")
 
 # === Constants ===
