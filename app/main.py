@@ -6,14 +6,13 @@ from neo4j import AsyncGraphDatabase
 
 from app.api.api_router import api_router, auth_router
 from app.core.config import get_settings
-from app.schemas.logger import logger
 
 app = FastAPI(
     title="minimal fastapi postgres template",
     version="6.1.0",
     description="https://github.com/20230028426_EYGS/coe-ens-application-backend.git",
-    openapi_url="/openapi.json",
     docs_url="/",
+    root_path="/api/supplier"
 )
 
 app.include_router(auth_router)
@@ -22,10 +21,7 @@ app.include_router(api_router)
 # Sets all CORS enabled origins
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        str(origin).rstrip("/")
-        for origin in get_settings().security.backend_cors_origins
-    ],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -47,6 +43,6 @@ async def startup_event():
         )
         async with driver.session() as session:
             await session.run("RETURN 1")
-        logger.info("Neo4j connection established.")
+        print("Neo4j connection established.")
     except Exception as e:
-        logger.warning(f"Failed to connect to Neo4j: {str(e)}")
+        print("Failed to connect to Neo4j:", str(e))
