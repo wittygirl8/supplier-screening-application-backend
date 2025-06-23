@@ -30,7 +30,7 @@ app.add_middleware(
 # Guards against HTTP Host Header attacks
 app.add_middleware(
     TrustedHostMiddleware,
-    allowed_hosts=get_settings().security.allowed_hosts,
+    allowed_hosts=["*"],
 )
 
 
