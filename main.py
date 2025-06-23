@@ -1,16 +1,16 @@
-from fastapi import FastAPI
-# from .controllers import item_controller
-from controllers import item_controller
-from fastapi.middleware.cors import CORSMiddleware
-app = FastAPI()
-# Configure CORS middleware to allow requests from the React app
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # React app's URL (or use "*" for all origins)
-    allow_credentials=True,
-    allow_methods=["*"],  # Allows all HTTP methods (GET, POST, etc.)
-    allow_headers=["*"],  # Allows all headers (Content-Type, Authorization, etc.)
-)
-# Include the item routes
-app.include_router(item_controller.router)
+# This is a sample Python script.
 
+# Press Shift+F10 to execute it or replace it with your code.
+# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+
+
+def print_hi(name):
+    # Use a breakpoint in the code line below to debug your script.
+    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+
+
+# Press the green button in the gutter to run the script.
+if __name__ == '__main__':
+    print_hi('PyCharm')
+
+# See PyCharm help at https://www.jetbrains.com/help/pycharm/
